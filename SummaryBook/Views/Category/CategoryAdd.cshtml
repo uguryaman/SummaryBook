@@ -1,0 +1,33 @@
+﻿@model Entitylayer.Concreate.Category
+@{
+    ViewBag.Title = "CategoryAdd";
+    Layout = null;
+}
+
+@*<h2>kategori Ekleme Sayfası</h2>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>*@
+
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="container">
+                @using (Html.BeginForm("CategoryAdd", "Category", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        @Html.Label("Kategori adı")
+                        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.CategoryName)
+                        <br /><br />
+
+
+                        <button class="btn btn-info">Kaydet</button>
+                        <br />
+                        @Html.ActionLink("Geri Dön", "ındex")
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>

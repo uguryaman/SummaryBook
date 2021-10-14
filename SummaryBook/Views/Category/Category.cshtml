@@ -1,0 +1,50 @@
+﻿@model List<Entitylayer.Concreate.Category>
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_DenemeLayout.cshtml";
+
+}
+<h2>Kategori Sayfası</h2>
+<br />
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Yeni Kategori Ekle
+</button>
+<br />
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>KATEGORİ ADI</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryId</td>
+            <td>@item.CategoryName</td>
+            <td><a class="btn btn-info" href="/Category/CategoryEdit/@item.CategoryId">Düzenle</a></td>
+            <td><a class="btn btn-danger alertOk" href="/Category/CategoryDelete/@item.CategoryId">Sil</a></td>
+        </tr>
+    }
+</table>
+
+
+@Html.Partial("Popup")
+
+<script>
+
+    $(function () {
+        $('.alertOk').click(function () {
+            swal({
+                title: "Silme İşlemi Başarılı!",
+                text: "Silme İşlemi Başarılı!",
+                icon: "success",
+                button: "OK!",
+            });
+
+        });
+
+    });
+</script>

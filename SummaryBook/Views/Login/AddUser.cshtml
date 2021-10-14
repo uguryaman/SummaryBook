@@ -1,0 +1,35 @@
+﻿@model Entitylayer.Concreate.User
+@{
+    ViewBag.Title = "AddUser";
+    Layout = "~/Views/Shared/_DenemeLayout.cshtml";
+}
+
+<h2>AddUser</h2>
+
+<div class="container">
+    @using (Html.BeginForm("AddUser", "Login", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.Label("Adınız")
+            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.UserName)
+            <br />
+            @Html.Label("Soyadınız")
+            @Html.TextBoxFor(x => x.UserSurname, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.UserSurname)
+            <br />
+            @Html.Label("Mail Adresiniz")
+            @Html.TextBoxFor(x => x.UserMail, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.UserMail)
+            <br />
+            @Html.Label("Şifre")
+            @Html.PasswordFor(x => x.UserPassword, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.UserPassword)
+            <br />
+            <button class="btn btn-info">Kaydet</button>
+
+        </div>
+    }
+</div>
+
+

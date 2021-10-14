@@ -1,0 +1,54 @@
+﻿@model List<Entitylayer.Concreate.Writer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DenemeLayout.cshtml";
+}
+
+<h2>Yazar Sayfası</h2>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#WriterAdd">
+    Yeni Yazar Ekle
+</button>
+<br />
+<br />
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>YAZAR ADI</th>
+        <th>YAZAR SOYADI</th>
+        <th>Yazara Ait Kitaplar</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.WriterId</td>
+            <td>@item.WriterName</td>
+            <td>@item.WriterSurname</td>
+            <td><a class="btn btn-default">Kitaplar</a></td>
+            <td><a class="btn btn-info" href="/Writer/WriterEdit/@item.WriterId">Düzenle</a></td>         
+            <td><a class="alertOk btn btn-danger alertOk" href="/Writer/WriterDelete/@item.WriterId">Sil</a></td>
+        </tr>
+    }
+</table>
+@Html.Partial("WriterAddPopup")
+<script>
+
+    $(function () {
+        $('.alertOk').click(function () {
+            swal({
+                title: "Silme İşlemi Başarılı!",
+                text: "Silme İşlemi Başarılı!",
+                icon: "success",
+                button: "OK!",
+            });
+
+        });
+
+    });
+</script>
+
+

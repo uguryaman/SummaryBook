@@ -1,0 +1,48 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@using Entitylayer.Concreate
+@model PagedList.IPagedList<Book>
+@{
+    ViewBag.Title = "BookIndex";
+    //Layout = "~/Views/Shared/_VitrinLayout.cshtml";
+    Layout = "~/Views/Shared/_DenemeLayout.cshtml";
+
+}
+@*<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+    <link href="~/Temalar/Tema2/templatemo_539_simple_house/css/all.min.css" rel="stylesheet" />
+    <link href="~/Temalar/Tema2/templatemo_539_simple_house/css/templatemo-style.css" rel="stylesheet" />*@
+<div class="container">
+
+    @using (Html.BeginForm("BookIndex", "Book", FormMethod.Get, new { @class = "form-inline ml-3" }))
+    {
+        <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="Kitap ara" aria-label="Search" name="k"><br />
+            <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    }
+
+    <br />
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-2" style="border-style: solid; margin:15px; background-color:#93d1c8">
+                <img align="center" src="@item.BookPicture" alt="Image" class="img-fluid tm-person-img "style="margin-top:10px; " />
+                <br /><br />
+                <a href="#">  <h6 style="color:darkblue " align="center">     @item.BookName</h6></a>
+                <br />
+
+            </div>
+        }
+    </div>
+    <br />
+    @Html.PagedListPager((IPagedList)Model, p => Url.Action("BookIndex", new { p }), new PagedListRenderOptions
+    {
+
+        LiElementClasses = new List<string>
+        {"page-link"}
+    })
+</div>

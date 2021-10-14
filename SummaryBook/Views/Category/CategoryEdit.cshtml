@@ -1,0 +1,36 @@
+﻿@model Entitylayer.Concreate.Category
+
+@{
+    ViewBag.Title = "CategoryEdit";
+    Layout = "~/Views/Shared/_DenemeLayout.cshtml";
+}
+
+<h2>CategoryEdit</h2>
+
+@using (Html.BeginForm("CategoryEdit", "Category", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.CategoryId)
+
+        @Html.Label("Kategori adı")
+       
+
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryName)
+        <br /><br />
+
+        <div class="modal-footer">
+            @*<button type="button" class="btn btn-secondary" data-dismiss="modal">Çıkış</button>*@
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </div>
+
+    </div>
+}
+<script>
+    $(function () {
+        $('[type = "submit"]').click(function () {
+            alert("İşlem Başarılı...")
+        });
+    });
+
+</script>

@@ -1,0 +1,27 @@
+﻿@model Entitylayer.Concreate.Summary 
+@{
+    ViewBag.Title = "SummaryAdd";
+    Layout = "~/Views/Shared/_DenemeLayout.cshtml";
+}
+
+<h2>Özet Ekleme Sayfası</h2>
+
+<div class="container">
+    @using (Html.BeginForm("SummaryAdd", "Summary", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+    <div class="form-group">
+        @Html.Label("Kullanıcı")
+        @Html.DropDownList("UserId", (List<SelectListItem>)ViewBag.user, htmlAttributes: new { @class = "form-control" })
+        <br />
+        @Html.Label("Kitap Adı")
+        @Html.DropDownList("BookId", (List<SelectListItem>)ViewBag.book, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Book)
+        <br />
+        @Html.Label("Özet")
+        @Html.TextAreaFor(x=>x.BookSummary, new { @class = "form-control" })
+        
+        <button class="btn btn-info" type="submit">Kaydet</button>
+
+    </div>
+    }
+</div>

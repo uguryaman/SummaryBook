@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Tema2Layout.cshtml";
+    //Layout = null;
+
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<!DOCTYPE html>
+
+<div class="container">
+    <a class="btn btn-success alertOk">uğur</a>
+    <p class="ugur">gizle</p>
+    <h3 class="ugur">gizle2</h3>
+
+</div>  
+
+<script>
+    $(function () {
+        $('a').click(function () {
+            $(".btn").css("backgrount-color","red");
+
+
+        });
+
+    });
+
+</script>
+@*<script>
+
+    $(function () {
+        $('.alertOk').click(function () {
+            swal({
+                title: "Silme İşlemi Başarılı!",
+                text: "Silme İşlemi Başarılı!",
+                icon: "success",
+                button: "Aww yiss!",
+            });
+
+        });
+
+    });
+</script>*@

@@ -1,0 +1,31 @@
+﻿@model Entitylayer.Concreate.Writer
+@{
+    ViewBag.Title = "WriterEdit";
+    Layout = "~/Views/Shared/_DenemeLayout.cshtml";
+}
+
+<h2>WriterEdit</h2>
+
+<div class="row">
+    <div class="col-xl-8">
+        @using (Html.BeginForm("WriterEdit", "Writer", FormMethod.Post))
+        {
+            @Html.HiddenFor(x => x.WriterId)
+            <div class="col-xl-2"></div>
+            <div class="form-group">
+                @Html.Label("Yazar adı")
+                @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+                <br /><br />
+                @Html.Label("Yazar soyadı")
+                @Html.TextBoxFor(x => x.WriterSurname, new { @class = "form-control" })
+                <br /><br />
+
+                <div class="modal-footer">
+                    <button type="submit" class="alertOk btn btn-primary">Kaydet</button>
+                </div>
+
+            </div>
+        }
+
+    </div>
+</div>

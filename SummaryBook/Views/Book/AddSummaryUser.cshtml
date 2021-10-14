@@ -1,0 +1,77 @@
+﻿@model Entitylayer.Concreate.BookUser
+
+@{
+    ViewBag.Title = "AddSummaryUser";
+    Layout = "~/Views/Shared/_DenemeLayout.cshtml";
+}
+
+<h2> Merhaba @ViewBag.name, Kitap Özetini Ekleyebilirsin:</h2>
+
+
+
+
+@using (Html.BeginForm("AddSummaryUser", "Book", FormMethod.Post))
+{
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Kategori</label>
+            <input type="text" class="form-control" id="inputEmail4" placeholder="Kategori" name="BookUserCategory">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Basım Yılı</label>
+            <input type="text" class="form-control" id="inputPassword4" placeholder="Basım Yılı" name="BookUserYear">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputAddress2">Kitap Adı</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Kitap Adı" name="BookUserName">
+    </div>
+
+    <div class="form-group">
+        <label for="inputAddress">Yazar</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="Yazar" name="BookUserWriter">
+    </div>
+    <div class="form-group">
+        @Html.Label("Kitap Özeti")
+        @Html.TextAreaFor(x => x.BookUserSummary, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.BookUserSummary)
+    </div>
+    <button type="submit" class="btn btn-primary" onclick="uyari()">Kaydet</button>
+}
+
+<script type="text/javascript">
+
+    function uyari() {
+        alert("Katkınız için teşekkürler. Özetiniz en kısa sürede incelenip sayfamıza eklenecektir...");
+    }
+
+</script>
+
+@*<div class="container">
+        @using (Html.BeginForm("AddSummeryUser", "Book", FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.Label("Kategori")
+                @Html.TextBoxFor(x => x.BookUserCategory, new { @class = "form-control" })
+                <br />
+                @Html.Label("Kitap Adı")
+                @Html.TextBoxFor(x => x.BookUserName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.BookUserName)
+                <br />
+                @Html.Label("Kitap Yazarı")
+                @Html.TextBoxFor(x => x.BookUserWriter, new { @class = "form-control" })
+                <br />
+                @Html.Label("Kitap Basım Yılı")
+                @Html.TextBoxFor(x => x.BookUserYear, new { @class = "form-control" })
+                <br />
+                @Html.Label("Kitap Özeti")
+                @Html.TextAreaFor(x => x.BookUserSummary, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.BookUserSummary)
+
+
+                <br />
+                <button class="btn btn-info" type="submit">Kaydet</button>
+
+            </div>
+        }
+    </div>*@
